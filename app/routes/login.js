@@ -22,12 +22,13 @@ export default Ember.Route.extend({
 			let user = this.store.peekAll('user')
 				.filterBy('email', email);
 			if (user.objectAt(0).data.password === password) {
-				this.set('controller.session.currentUser', {
+				localStorage.setItem('user', JSON.stringify({
 					name: user.objectAt(0).data.name,
 					lastName: user.objectAt(0).data.lastName,
 					email: user.objectAt(0).data.email,
 					isAdmin: user.objectAt(0).data.isAdmin
-				});
+				}));
+				console.log(localStorage.getItem('user'));
 				this.set('controller.email', null);
 				this.set('controller.password', null);
 				this.transitionTo('search');

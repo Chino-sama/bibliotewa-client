@@ -11,7 +11,11 @@ Router.map(function() {
   this.route('home', {path: '/'});
   this.route('search');
   this.route('login');
-  this.route('admin');
+  this.route('admin', function() {
+    this.route('profile');
+    this.route('books');
+    this.route('loans');
+  });
 });
 
 export default Router;

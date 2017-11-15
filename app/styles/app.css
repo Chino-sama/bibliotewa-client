@@ -70,3 +70,9 @@
 .nav-bar {
 	font-size: 1.2em;
 }
+
+/*side-nav*/
+
+.side-nav {
+	top: 67.81px !important;
+}

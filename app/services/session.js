@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
-	currentUser: null,
+	currentUser: JSON.parse(localStorage.getItem('user')),
 });
