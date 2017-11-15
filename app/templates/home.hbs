@@ -1,0 +1,17 @@
+<div class="home-page blue lighten-2">
+	<h1 class="white-text center home-title">
+		Bibliotewa
+	</h1>
+	<form class="row input-field center">
+		<div class="col s7 no-padding offset-s2">
+			<i class="material-icons absolute grey-text text-darken-1 padding-left">search</i>
+			{{input
+				class="white home-input"
+				placeholder="Búsqueda"
+			}}
+		</div>
+		<div class="col s1 no-padding left-align">
+			<button class="btn waves-effect home-btn orange" {{action 'search'}}>Buscar</button>
+		</div>
+	</form>
+</div>

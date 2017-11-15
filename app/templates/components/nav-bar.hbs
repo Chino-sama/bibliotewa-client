@@ -1,0 +1,27 @@
+<div class="nav-bar no-margin row padded blue lighten-2">
+	<div class="col s6">{{#link-to 'home' class="white-text logo-nav"}}Bibliotewa{{/link-to}}</div>
+	{{#if session.currentUser}}
+		{{#jquery-wrapper
+			query='.dropdown-button'
+			method='dropdown'
+		}}
+			<div class="col s6 right-align"><a class="clickable dropdown-button white-text" data-activates="profile-drop"><i class="material-icons valign-wrapper">person</i> ¡Hola! {{session.currentUser.name}}</a></div>
+		{{/jquery-wrapper}}
+		<ul id="profile-drop" class="dropdown-content">
+			{{#if session.currentUser.isAdmin}}
+				<li>
+					{{#link-to 'admin'}}
+						<span class="valign-wrapper">
+							<i class="material-icons small-margin-right">verified_user</i> Admin
+						</span>
+					{{/link-to}}
+				</li>
+			{{/if}}
+			<li><a href="#">wawaw</a></li>
+			<li><a href="#">wawaw</a></li>
+		</ul>
+	{{else}}
+		<div class="col s6 right-align">{{#link-to 'login' class='white-text'}}Iniciar Sesión{{/link-to}}</div>
+	{{/if}}
+</div>
+{{yield}}

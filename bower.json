@@ -1,5 +1,7 @@
 {
-  "name": "bibliotewa-client",
-  "dependencies": {
-  }
+	"name": "bibliotewa-client",
+	"dependencies": {
+		"materialize": "^0.100.2",
+		"sweetalert2": "^6.1.0"
+	}
 }

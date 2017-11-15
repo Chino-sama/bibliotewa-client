@@ -1,0 +1,62 @@
+<div class="row login-form">
+	<div class="col s5 offset-s1">
+		<form class="col s10">
+			<h4 class="blue-text large-margin-bottom col s12">Iniciar Sesión</h4>
+			<div class="input-field margin-bottom col s12">
+				{{input
+					id="email"
+					value=email
+				}}
+				<label for="email">Correo Electrónico</label>
+			</div>
+			<div class="input-field col s12">
+				{{input
+					id="pass"
+					type='password'
+					value=password
+				}}
+				<label for="pass">Contraseña</label>
+			</div>
+			<div class="col s12 center">
+				<button class="btn btn-large blue center" style="margin-top:25%;" {{action 'login' email password}}>Iniciar sesión</button>
+			</div>
+		</form>
+	</div>
+	<div class="col s5 offset-s1">
+		<form class="grey lighten-4 col s10">
+			<h4 class="orange-text large-margin-bottom col s12">Regístrate</h4>
+			<div class="input-field margin-bottom col s6">
+				{{input
+					id="name"
+					value=newName
+				}}
+				<label for="name">Nombre</label>
+			</div>
+			<div class="input-field margin-bottom col s6">
+				{{input
+					id="last-name"
+					value=newLastName
+				}}
+				<label for="last-name">Apellidos</label>
+			</div>
+			<div class="input-field margin-bottom col s12">
+				{{input
+					id="newEmail"
+					value=newEmail
+				}}
+				<label for="newEmail">Correo Electrónico</label>
+			</div>
+			<div class="input-field col s12">
+				{{input
+					id="newPass"
+					type='password'
+					value=newPass	
+				}}
+				<label for="newPass">Contraseña</label>
+			</div>
+			<div class="col s12 center padded">
+				<button class="btn btn-large orange" {{action 'register' newName newLastName newEmail newPass}}>Registrar</button>
+			</div>
+		</form>
+	</div>
+</div>

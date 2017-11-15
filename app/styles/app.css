@@ -1,0 +1,72 @@
+/*General Classes*/
+
+.no-margin { margin: 0 !important; }
+
+.no-padding { padding: 0 !important; }
+.padded { padding: 1em !important; }
+
+.right-align { text-align: right; }
+
+.absolute {	position: absolute; }
+
+.small-margin-right { margin-right: .5em; }
+.small-margin-top { margin-top: .5em; }
+.margin-bottom { margin-bottom: 1em; }
+.large-margin-bottom { margin-bottom: 2em; }
+
+.clickable { cursor: pointer; }
+
+/*HOME Classes*/
+
+.home-page {
+	width: 100vw;
+	height: 100vh;
+}
+
+.home-btn {
+	height: 45px;
+}
+
+.home-title {
+	padding-top: 22vh;
+	margin-top: 0;
+	margin-bottom: 5vh;
+	font-size: 9em;
+	font-weight: bold;
+}
+
+/*input-field*/
+
+.input-field i {
+    top: 30%;
+    transform: translateY(-40%);
+    text-align: left;
+    font-size: 30px;
+    padding-left: .2em;
+}
+
+.input-field .home-input {
+	padding-left: 2.9em !important;
+}
+
+/*Login classes*/
+
+.login-form {
+	margin-top: 15vh;
+}
+
+.login-btn {
+	position: absolute;
+	top: 72vh;
+}
+
+/*nav-bar*/
+
+.logo-nav {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.nav-bar {
+	font-size: 1.2em;
+}
