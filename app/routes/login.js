@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	session: Ember.inject.service(),
+
 	model() {
 		this.store.findAll('user');
 	},
@@ -28,10 +30,10 @@ export default Ember.Route.extend({
 					email: user.objectAt(0).data.email,
 					isAdmin: user.objectAt(0).data.isAdmin
 				}));
-				console.log(localStorage.getItem('user'));
+				this.set('session.currentUser', JSON.parse(localStorage.getItem('user')));
 				this.set('controller.email', null);
 				this.set('controller.password', null);
-				this.transitionTo('search');
+				this.transitionTo('home');
 			}
 			else {
 				alert('ÑO!');

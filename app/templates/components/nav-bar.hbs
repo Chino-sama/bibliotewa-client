@@ -1,23 +1,35 @@
 <div class="nav-bar no-margin row padded blue lighten-2">
 	<div class="col s6">{{#link-to 'home' class="white-text logo-nav"}}Bibliotewa{{/link-to}}</div>
 	{{#if session.currentUser}}
-		{{#jquery-wrapper
-			query='.dropdown-button'
-			method='dropdown'
-		}}
-			<div class="col s6 right-align"><a class="clickable dropdown-button white-text" data-activates="profile-drop"><i class="material-icons valign-wrapper">person</i> ¡Hola! {{session.currentUser.name}}</a></div>
-		{{/jquery-wrapper}}
-		<ul id="profile-drop" class="dropdown-content">
+		<div class="right-align nav-drop">
+			{{#jquery-wrapper
+				query='.dropdown-button'
+				method='dropdown'
+			}}
+				<a class="clickable dropdown-button white-text" data-activates="profile-drop">
+					<span class="valign-wrapper">
+						<i class="material-icons small-margin-right">person</i>¡Hola {{session.currentUser.name}}! <i class="material-icons small-margin-left">keyboard_arrow_down</i>
+					</span>
+				</a>
+			{{/jquery-wrapper}}
+		</div>
+		<ul id="profile-drop" class="dropdown-content profile-dropdown">
 			{{#if session.currentUser.isAdmin}}
 				<li>
 					{{#link-to 'admin'}}
-						<span class="valign-wrapper">
+						<span class="valign-wrapper blue-text">
 							<i class="material-icons small-margin-right">verified_user</i> Admin
 						</span>
 					{{/link-to}}
 				</li>
 			{{/if}}
-			<li><a href="#">wawaw</a></li>
+			<li>
+				<a {{action 'signOut' on=click}}>
+					<span class="valign-wrapper blue-text">
+						<i class="material-icons small-margin-right">exit_to_app</i> Cerrar sesión
+					</span>
+				</a>
+			</li>
 			<li><a href="#">wawaw</a></li>
 		</ul>
 	{{else}}
