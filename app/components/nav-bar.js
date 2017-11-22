@@ -8,7 +8,6 @@ export default Ember.Component.extend({
 			localStorage.setItem('user', null);
 			this.set('session.currentUser', null);
 			this.get('router').transitionTo('home');
-			window.location.reload(true);
 		}
 	}	
 });

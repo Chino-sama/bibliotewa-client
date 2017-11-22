@@ -7,13 +7,15 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('books');
   this.route('home', {path: '/'});
   this.route('search');
   this.route('login');
   this.route('admin', function() {
     this.route('profile');
-    this.route('books');
+    this.route('books', function() {
+      this.route('new');
+      this.route('list', { path: '/'} );
+    });
     this.route('loans');
   });
 });

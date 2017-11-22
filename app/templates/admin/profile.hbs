@@ -1,1 +1,27 @@
 <h3 class="bold orange-text">Ver Perfil</h3>
+<form>
+	<div class="input-field margin-bottom col s12">
+		{{input
+			id="name"
+			value=newName
+		}}
+		<label class="active" for="name">Nombre</label>
+	</div>
+	<div class="input-field margin-bottom col s12">
+		{{input
+			id="lastName"
+			value=newLastName
+		}}
+		<label class="active" for="lastName">Apellido</label>
+	</div>
+	<div class="input-field margin-bottom col s12">
+		{{input
+			disabled='disabled'
+			id="email"
+			class="grey-text text-darken-3"
+			value=session.currentUser.email
+		}}
+		<label class="active" for="email">Correo Electrónico</label>
+	</div>
+	<button class="orange btn waves-effect" {{action 'save' newName newLastName session.currentUser.email}}>Guardar cambios</button>
+</form>

@@ -14,9 +14,17 @@
 .small-margin-right { margin-right: .5em; }
 .small-margin-top { margin-top: .5em; }
 .margin-bottom { margin-bottom: 1em; }
+.margin-top { margin-bottom: 1em; }
 .large-margin-bottom { margin-bottom: 2em; }
 
 .clickable { cursor: pointer; }
+
+.add-btn {
+	position: absolute;
+	z-index: 100;
+	bottom: 15px;
+	right: 15px;
+}
 
 /*HOME Classes*/
 
