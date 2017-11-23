@@ -1,8 +1,6 @@
 /*General Classes*/
 
-.bold {
-	font-weight: bold;
-}
+.bold {	font-weight: bold; }
 
 .no-margin { margin: 0 !important; }
 
@@ -11,19 +9,32 @@
 
 .absolute {	position: absolute; }
 
+.font-large { font-size: 1.3em; }
+
 .small-margin-right { margin-right: .5em; }
 .small-margin-top { margin-top: .5em; }
 .margin-bottom { margin-bottom: 1em; }
 .margin-top { margin-bottom: 1em; }
 .large-margin-bottom { margin-bottom: 2em; }
 
+.padding-top { margin-top: 1em; }
+.large-padding-top { margin-top: 2em; }
+
 .clickable { cursor: pointer; }
+
+.full-height { height: 100%; }
 
 .add-btn {
 	position: absolute;
 	z-index: 100;
 	bottom: 15px;
 	right: 15px;
+}
+
+.vertical-divider {
+	border-right: 1px solid #bdbdbd;
+	border-radius: 5px;
+	height: 210px;
 }
 
 /*HOME Classes*/
@@ -110,4 +121,30 @@
 
 .admin-form {
 	padding: 2.5em 5em !important; 
+}
+
+/*Images*/
+
+.image-wrapper {
+	width: 100%;
+	overflow: hidden;
+	height: 200px;
+}
+
+.image-content {
+
+}
+
+/*Book Card*/
+
+.book-card {
+	padding-top: 3em;
+}
+
+.book-card-height {
+	height: 200px;
+}
+
+.book-card-data {
+	padding-top: 185px !important;
 }
