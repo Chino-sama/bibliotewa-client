@@ -120,7 +120,13 @@
 /*Admin Classes*/
 
 .admin-form {
-	padding: 2.5em 5em !important; 
+	padding: 3em !important; 
+}
+
+.admin-label {
+	font-size: 27px;
+	color: black;
+	font-weight: bold;
 }
 
 /*Images*/

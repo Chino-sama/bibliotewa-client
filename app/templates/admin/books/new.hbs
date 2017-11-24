@@ -1,34 +1,49 @@
 <h3 class="orange-text bold">Nuevo libro</h3>
 <form>
-	{{input
-		placeholder='Título'
-		value=title
-	}}
-	{{textarea
-		placeholder='Introduce una breve Sinopsis :D'
-		class='materialize-textarea'
-		value=description
-	}}
-	{{input
-		placeholder='Introduce el año de publicación'
-		value=year
-		type=number
-	}}
-	{{input
-		placeholder='Introduce la edición '
-		value=edition
-	}}
-	{{input
-		placeholder='Introduce el ISBN del libro'
-		value=isbn
-	}}
-	{{input
-		placeholder='Introduce la URL de la imagen de portada :d'
-		value=isbn
-	}}
-	{{input
-		placeholder='Si quieres registrar más de un ejemplar DO IT'
-		value=copies
-	}}
+	<div class="col s6">
+		<label for='title' class="admin-label">Título</label>
+		{{input
+			id='title'
+			placeholder='Introduce el título'
+			value=title
+		}}
+		<label for='title' class="admin-label">Descripción</label>
+		{{textarea
+			placeholder='Introduce una breve Sinopsis :D'
+			class='materialize-textarea'
+			value=description
+		}}
+		<label for='title' class="admin-label">Año</label>
+		{{input
+			placeholder='Introduce el año de publicación'
+			value=year
+			type=number
+		}}
+		<label for='title' class="admin-label">Edición</label>
+		{{input
+			placeholder='Introduce la edición '
+			value=edition
+		}}
+		<label for='title' class="admin-label">ISBN</label>
+		{{input
+			placeholder='Introduce el ISBN del libro'
+			value=isbn
+		}}
+		<label for='title' class="admin-label">Portada</label>
+		{{input
+			placeholder='Introduce la URL de la imagen de portada :d'
+			value=isbn
+		}}
+		<label for='title' class="admin-label">Ejemplares</label>
+		{{input
+			placeholder='Si quieres registrar más de un ejemplar DO IT'
+			value=copies
+		}}
+		<label for='title' class="admin-label">Géneros</label>
+		{{input
+			placeholder='Si quieres registrar más de un ejemplar DO IT'
+			value=genres
+		}}
+	</div>
 	<button class="btn waves-effect orange">Registrar!</button>
 </form>

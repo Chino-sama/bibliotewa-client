@@ -36,7 +36,6 @@ export default Ember.Route.extend({
 					email: user.objectAt(0).data.email,
 					isAdmin: user.objectAt(0).data.isAdmin
 				}));
-				console.log(localStorage.getItem('user'))
 				this.set('session.currentUser', JSON.parse(localStorage.getItem('user')));
 				this.set('controller.email', null);
 				this.set('controller.password', null);
