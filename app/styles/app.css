@@ -19,6 +19,8 @@
 
 .padding-top { margin-top: 1em; }
 .large-padding-top { margin-top: 2em; }
+.large-padding-right { padding-right: 4em !important; }
+.large-padding-left { padding-left: 4em !important; }
 
 .clickable { cursor: pointer; }
 
@@ -35,6 +37,12 @@
 	border-right: 1px solid #bdbdbd;
 	border-radius: 5px;
 	height: 210px;
+}
+
+/*Bibliotewa Classes*/
+
+.bibliotewa-input:focus {
+	border-bottom: 1px solid #2196f3 !important;
 }
 
 /*HOME Classes*/
@@ -101,8 +109,8 @@
 /*side-nav*/
 
 .side-nav {
-	top: 67.81px !important;
-	padding-top: 2.5em;
+	z-index: -1;
+	padding-top: 5em;
 }
 
 .side-nav li a {
@@ -132,13 +140,23 @@
 /*Images*/
 
 .image-wrapper {
+	position: relative;
 	width: 100%;
 	overflow: hidden;
 	height: 200px;
 }
 
-.image-content {
+.book-image {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	height: 300px;
+}
 
+.image-content {
+	background-color: #b1b1b1;
+	width: 50%;
+	height: 100%;
 }
 
 /*Book Card*/

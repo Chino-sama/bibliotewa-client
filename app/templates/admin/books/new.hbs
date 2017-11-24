@@ -1,49 +1,71 @@
 <h3 class="orange-text bold">Nuevo libro</h3>
 <form>
-	<div class="col s6">
-		<label for='title' class="admin-label">Título</label>
+	<div class="col s6 large-padding-right">
+		<div class="admin-label">Título</div>
 		{{input
-			id='title'
+ 			id='title'
 			placeholder='Introduce el título'
 			value=title
+			class="bibliotewa-input"
+			class="bibliotewa-input"
 		}}
-		<label for='title' class="admin-label">Descripción</label>
-		{{textarea
-			placeholder='Introduce una breve Sinopsis :D'
-			class='materialize-textarea'
-			value=description
-		}}
-		<label for='title' class="admin-label">Año</label>
-		{{input
-			placeholder='Introduce el año de publicación'
-			value=year
-			type=number
-		}}
-		<label for='title' class="admin-label">Edición</label>
+		<div class="col s6">
+			<div class="admin-label">Año</div>
+			{{number-input
+				placeholder='Introduce el año de publicación'
+				value=year
+				type=number
+				class="bibliotewa-input"
+			}}
+		</div>
+		<div class="col s6">
+			<div class="admin-label">ISBN</div>
+			{{input
+				placeholder='Introduce el ISBN del libro'
+				value=isbn
+				class="bibliotewa-input"
+			}}
+		</div>
+		<div class="admin-label">Edición</div>
 		{{input
 			placeholder='Introduce la edición '
 			value=edition
+			class="bibliotewa-input"
 		}}
-		<label for='title' class="admin-label">ISBN</label>
-		{{input
-			placeholder='Introduce el ISBN del libro'
-			value=isbn
-		}}
-		<label for='title' class="admin-label">Portada</label>
+		<div class="admin-label">Portada</div>
 		{{input
 			placeholder='Introduce la URL de la imagen de portada :d'
 			value=isbn
+			class="bibliotewa-input"
 		}}
-		<label for='title' class="admin-label">Ejemplares</label>
-		{{input
-			placeholder='Si quieres registrar más de un ejemplar DO IT'
-			value=copies
+			<button class="btn waves-effect orange">Registrar!</button>
+	</div>
+	<div class="col s6 large-padding-left">
+		<div class="book-image">
+			<div class="image-content col s5">
+			</div>
+			<div class="col s7">
+				<div class="admin-label">Ejemplares</div>
+				{{number-input
+					placeholder='Si quieres registrar más de un ejemplar DO IT'
+					type=number
+					value=copies
+					class="bibliotewa-input"
+				}}
+			</div>
+		</div>
+		<div class="admin-label">Descripción</div>
+		{{textarea
+			placeholder='Introduce una breve Sinopsis :D'
+			class='materialize-textarea bibliotewa-input'
+			value=description
 		}}
-		<label for='title' class="admin-label">Géneros</label>
-		{{input
+		<div class="admin-label">Géneros</div>
+		{{material-chips}}
+		{{!-- {{input
 			placeholder='Si quieres registrar más de un ejemplar DO IT'
 			value=genres
-		}}
+			class="bibliotewa-input"
+		}} --}}
 	</div>
-	<button class="btn waves-effect orange">Registrar!</button>
 </form>
