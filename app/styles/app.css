@@ -1,3 +1,7 @@
+select {
+	display: inline-block;
+}
+
 /*General Classes*/
 
 .bold {	font-weight: bold; }
@@ -121,7 +125,7 @@
 /*side-nav*/
 
 .side-nav {
-	z-index: -1;
+	top: 67.81px;
 	padding-top: 5em;
 }
 
