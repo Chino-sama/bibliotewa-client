@@ -1,0 +1,28 @@
+{{#power-select	
+		required=required
+		selected=selection
+		allowClear=allowClear
+		searchField='name'
+		placeholder=default
+		selectedItemComponent=(if returnPropertyName "matchsearch-selected" null)
+		searchPlaceholder=searchPlaceholder
+		searchEnabled=searchEnabled
+		noMatchesMessage=noMatchesMessage
+		disabled=(or disabled (not options.length))
+		options=options
+		onchange=(action "select")
+		as |opt|
+	}}
+	{{#if hasBlock}}
+		{{yield opt}}
+	{{else}}
+		{{get-with-default opt displayPropertyName opt}}
+	{{/if}}
+{{/power-select}}
+{{input
+	type='text'
+	tabIndex='-1'
+	class='validation-input'
+	required=required
+	value=(if selection 'x' '')
+}}

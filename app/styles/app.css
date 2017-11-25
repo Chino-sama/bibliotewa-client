@@ -2,11 +2,21 @@
 
 .bold {	font-weight: bold; }
 
+.bottom { 
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.relative { position: relative; }
+
+.no-border { border: none; }
+
 .no-margin { margin: 0 !important; }
 
 .no-padding { padding: 0 !important; }
 .no-padding-left { padding-left: 0 !important; }
-.no-padding-right { padding-right: 0 !important; }
+.no-padding-right { padding-right: 0 !important; }	
 .padded { padding: 1em !important; }
 
 .absolute {	position: absolute; }
@@ -120,9 +130,9 @@
 
 /*side-nav*/
 
-.side-nav {
-	z-index: -1;
-	padding-top: 5em;
+.side-nav {	
+	top: 67.81px;
+	padding-top: 2em;
 }
 
 .side-nav li a {
@@ -187,4 +197,88 @@
 
 .book-card-data {
 	padding-top: 185px !important;
+}
+
+/*Power-Select*/
+.ember-power-select-dropdown {
+  z-index: 1004;
+}
+.ember-power-select-trigger {
+  border: none !important;
+  border-bottom: 1px solid grey !important;
+  border-radius: 0;
+  color: black;
+  overflow: hidden;
+}
+
+.matchsearch-selected,
+.ember-power-select-placeholder,
+.ember-power-select-selected-item {
+  display: inline-block;
+  width: calc(100% - 60px);
+  height: 100%;
+  overflow: hidden;
+}
+
+.selected .ember-power-select-status-icon {
+  display: none;
+}
+
+.ember-power-select-clear-btn {
+  /*position:relative;*/
+  font-size: 1.5rem;
+  /*font-weight: lighter;*/
+  /*line-height: 3.6rem;*/
+  color: #aaa;
+  right: 20px;
+  top: 0;	
+}
+
+.ember-power-select-clear-btn:before{
+    position: absolute;
+    content: '';
+    top: 0px;
+    right: -10px;
+    left: -10px;
+    bottom: 0px;
+    z-index: 40;
+}
+
+.ember-power-select-search-input {
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.ember-power-select-dropdown {
+  border: 0 !important;
+  outline: 1px solid #ccc;
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,.5);
+}
+
+.ember-power-select-option {
+  padding: 0.6em 1em;
+  color: #757575;
+  /*transition: all 0.1s;*/
+}
+.ember-power-select-option[aria-current="true"] {
+  background-color: #2196f3;
+}
+.match-search {
+  /*padding-right: 0.75em;*/
+  cursor: pointer;
+}
+
+.match-search .validation-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 !important;
+  z-index: -1;
+  opacity: 0;
+  /*height: 0;*/
+  /*border: 0 !important;*/
+  /*height: 0;*/
+  /*margin: 0;*/
 }

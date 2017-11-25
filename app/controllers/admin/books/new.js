@@ -47,6 +47,28 @@ export default Ember.Controller.extend({
 					Ember.$('#genre-modal').modal('close');
 				});
 			});
+		},
+		saveBook(title, description, edition, year, isbn, cover, copies, author, editorial) {
+			this.store.createRecord('book', {
+				title: 'wa',
+				description: 'wa',
+				edition: 'wa',
+				year: 2000,
+				isbn: 1000,
+				cover: 'wa',
+				copies: 2,
+				status: 1,
+				author,
+				editorial
+			}).save().then(() => {
+				swal(
+					'Libro Registrado',
+					'',
+					'success'
+				).then(() => {
+					this.transitionToRoute('admin/books');
+				})
+			})
 		}
 	}
 });

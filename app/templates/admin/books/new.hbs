@@ -1,5 +1,5 @@
 <h3 class="orange-text bold">Nuevo libro</h3>
-<form>
+<div>
 	<div class="col s6 large-padding-right">
 		<div class="admin-label">Título</div>
 		{{input
@@ -9,11 +9,17 @@
 		}}
 		<div class="col s12 no-margin no-padding">
 			<div class="admin-label">Autor</div>
-			{{input
-				placeholder='Introduce el autor'
-				value=author
-				class='bibliotewa-input col s7'
-			}}
+			<div class="col s7 no-padding">
+				{{#match-search
+					options=model.authors
+					selection=author
+					default='Selecciona el autor'
+					allowClear=true
+					as |author|
+				}}
+					{{author.fullName}}
+				{{/match-search}}
+			</div>
 			<a class="col s4 offset-s1 btn waves-effect orange modal-trigger" href="#author-modal">Añadir Autor</a>
 		</div>
 		<div class="col s5 no-padding-left">
@@ -35,11 +41,17 @@
 		</div>
 		<div class="col s12 no-margin no-padding">
 			<div class="admin-label">Editorial</div>
-			{{input
-				placeholder='Introduce la editorial'
-				value=editorial
-				class='bibliotewa-input col s7'
-			}}
+			<div class="col s7 no-padding">
+				{{#match-search
+					options=model.editorials
+					selection=editorial
+					default='Selecciona la editorial'
+					allowClear=true
+					as |editorial|
+				}}
+					{{editorial.name}}
+				{{/match-search}}
+			</div>
 			<a class="col s4 offset-s1 btn waves-effect orange modal-trigger" href="#editorial-modal">Añadir Editorial</a>
 		</div>
 		<div class="admin-label col s12 no-margin no-padding">Edición</div>
@@ -51,23 +63,40 @@
 		<div class="admin-label">Portada</div>
 		{{input
 			placeholder='Introduce la URL de la imagen de portada :d'
-			value=isbn
+			value=cover
 			class="bibliotewa-input"
 		}}
-		<button class="btn waves-effect orange">¡Registrar!</button>
+		<button class="btn waves-effect orange" 
+			{{action 'saveBook' 
+				title
+				description
+				edition
+				year
+				isbn
+				cover
+				copies
+				author
+				editorial
+				genres
+			}}
+		>
+			¡Registrar!
+	</button>
 	</div>
 	<div class="col s6 large-padding-left">
-		<div class="book-image">
+		<div class="book-image relative">
 			<div class="image-content col s5">
 			</div>
-			<div class="col s7">
-				<div class="admin-label">No. de Ejemplares</div>
-				{{number-input
-					placeholder='Si quieres registrar más de un ejemplar DO IT'
-					type=number
-					value=copies
-					class="bibliotewa-input"
-				}}
+			<div class="col s7 full-height">
+				<div class="bottom">
+					<div class="admin-label">No. de Ejemplares</div>
+					{{number-input
+						placeholder='Si quieres registrar más de un ejemplar DO IT'
+						type=number
+						value=copies
+						class="bibliotewa-input no-margin"
+					}}
+				</div>
 			</div>
 		</div>
 		<div class="admin-label">Descripción</div>
@@ -77,10 +106,12 @@
 			value=description
 		}}
 		<div class="admin-label">Géneros</div>
-		{{material-chips}}
+		{{material-chips
+			data=model.genres
+		}}
 		<a class="btn waves-effect orange modal-trigger" href="#genre-modal">Añadir género</a>
 	</div>
-</form>
+</div>
 
 {{#jquery-wrapper
 	query='#author-modal'
