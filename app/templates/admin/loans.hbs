@@ -1,1 +1,60 @@
-{{outlet}}
+<h3 class="bold orange-text">Préstamos</h3>
+<table class="striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Título</th>
+			<th>Usuario</th>
+			<th>Préstamo</th>
+			<th>Devolución</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each model as |loan|}}
+			{{#each loan.books as |book|}}
+				<td>{{loan.id}}</td>
+				<td>{{book.title}}</td>
+				<td>{{loan.user.name}}</td>
+				<td>{{moment-format (loan.loanDate) 'DD MM YY'}}</td>
+				<td>{{moment-format (loan.returnDate) 'DD MM YY'}}</td>
+			{{/each}}
+		{{/each}}
+	</tbody>
+</table>
+<br>
+<div class="fixed-action-btn">
+	<a href="#modal1" class="btn-floating btn-large waves-effect waves-light blue modal-trigger">
+		<i class="material-icons">add</i>
+	</a>
+</div>
+
+{{#jquery-wrapper
+	query='.modal'
+	method='modal'
+	options=modalOptions
+}}
+	<div id="modal1" class="modal admin-form">
+		<div class="modal-content">
+			<h5>Registrar préstamo</h5>
+			<label>Título del libro</label>
+			<select value="newLoanBook">
+				<option selected="selected">Selecciona el libro</option>
+				{{#each model.books as |book|}}
+					<option>{{book.title}}</option>
+				{{/each}}
+			</select>
+			<label>Usuario</label>
+			{{input
+				type='text'
+				placeholder='Introduce el correo electrónico del usuario'
+				value=newLoanUser
+			}}
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="white-text orange waves-effect btn btn-flat" {{action 'registerLoan' newLoanBook newLoanUser on='click'}}>
+				Registrar préstamo
+			</a>
+			<a href="#!" class="modal-action modal-close waves-effect btn-flat">Cancelar</a>
+		</div>
+	</div>
+{{/jquery-wrapper}}
