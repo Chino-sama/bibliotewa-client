@@ -3,13 +3,20 @@
 	<div class="col s6 large-padding-right">
 		<div class="admin-label">Título</div>
 		{{input
- 			id='title'
 			placeholder='Introduce el título'
 			value=title
 			class="bibliotewa-input"
-			class="bibliotewa-input"
 		}}
-		<div class="col s6">
+		<div class="col s12 no-margin no-padding">
+			<div class="admin-label">Autor</div>
+			{{input
+				placeholder='Introduce el autor'
+				value=author
+				class='bibliotewa-input col s7'
+			}}
+			<a class="col s4 offset-s1 btn waves-effect orange modal-trigger" href="#author-modal">Añadir Autor</a>
+		</div>
+		<div class="col s5 no-padding-left">
 			<div class="admin-label">Año</div>
 			{{number-input
 				placeholder='Introduce el año de publicación'
@@ -18,7 +25,7 @@
 				class="bibliotewa-input"
 			}}
 		</div>
-		<div class="col s6">
+		<div class="col s6 offset-s1 no-padding-right">
 			<div class="admin-label">ISBN</div>
 			{{input
 				placeholder='Introduce el ISBN del libro'
@@ -26,7 +33,16 @@
 				class="bibliotewa-input"
 			}}
 		</div>
-		<div class="admin-label">Edición</div>
+		<div class="col s12 no-margin no-padding">
+			<div class="admin-label">Editorial</div>
+			{{input
+				placeholder='Introduce la editorial'
+				value=editorial
+				class='bibliotewa-input col s7'
+			}}
+			<a class="col s4 offset-s1 btn waves-effect orange modal-trigger" href="#editorial-modal">Añadir Editorial</a>
+		</div>
+		<div class="admin-label col s12 no-margin no-padding">Edición</div>
 		{{input
 			placeholder='Introduce la edición '
 			value=edition
@@ -38,14 +54,14 @@
 			value=isbn
 			class="bibliotewa-input"
 		}}
-			<button class="btn waves-effect orange">Registrar!</button>
+		<button class="btn waves-effect orange">¡Registrar!</button>
 	</div>
 	<div class="col s6 large-padding-left">
 		<div class="book-image">
 			<div class="image-content col s5">
 			</div>
 			<div class="col s7">
-				<div class="admin-label">Ejemplares</div>
+				<div class="admin-label">No. de Ejemplares</div>
 				{{number-input
 					placeholder='Si quieres registrar más de un ejemplar DO IT'
 					type=number
@@ -62,10 +78,90 @@
 		}}
 		<div class="admin-label">Géneros</div>
 		{{material-chips}}
-		{{!-- {{input
-			placeholder='Si quieres registrar más de un ejemplar DO IT'
-			value=genres
-			class="bibliotewa-input"
-		}} --}}
+		<a class="btn waves-effect orange modal-trigger" href="#genre-modal">Añadir género</a>
 	</div>
 </form>
+
+{{#jquery-wrapper
+	query='#author-modal'
+	method='modal'
+}}
+	<div id="author-modal" class="modal admin-modal">
+		<div class="modal-content">
+			<h4 class="orange-text bold margin-bottom">Registrar autor</h4>
+			<div class="admin-label">Nombre</div>
+			{{input
+				placeholder='Introduce el nombre de autor'
+				value=authorName
+				class='bibliotewa-input'
+			}}
+			<div class="admin-label">Apellido</div>
+			{{input
+				placeholder='Introduce el apellido del autor'
+				value=authorLastName
+				class='bibliotewa-input'
+			}}
+		</div>
+		<div class="modal-footer">
+			<a class="btn orange waves-effect" {{action 'saveAuthor' authorName authorLastName}}>Registrar autor</a>
+		</div>
+		<a class="modal-action modal-close close-btn">
+			<i class="material-icons grey-text text-darken-2">close</i>
+		</a>
+	</div>
+{{/jquery-wrapper}}
+
+{{#jquery-wrapper
+	query='#editorial-modal'
+	method='modal'
+}}
+	<div id="editorial-modal" class="modal modal-fixed-footer admin-modal">
+		<div class="modal-content">
+			<h4 class="orange-text bold margin-bottom">Registrar autor</h4>
+			<div class="admin-label">Nombre</div>
+			{{input
+				placeholder='Introduce el nombre de autor'
+				value=editorialName
+				class='bibliotewa-input'
+			}}
+			<div class="admin-label">Logo</div>
+			{{input
+				placeholder='Introduce el apellido del autor'
+				value=editorialImg
+				class='bibliotewa-input'
+			}}
+			<div class="image-wrapper center">
+				<img src="{{editorialImg}}">
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a class="btn orange waves-effect" {{action 'saveEditorial' editorialName editorialImg}}>Registrar editorial</a>
+		</div>
+		<a class="modal-action modal-close close-btn">
+			<i class="material-icons grey-text text-darken-2 small">close</i>
+		</a>
+	</div>
+{{/jquery-wrapper}}
+
+{{#jquery-wrapper
+	query='#genre-modal'
+	method='modal'
+}}
+	<div id="genre-modal" class="modal modal-fixed-footer admin-modal">
+		<div class="modal-content">
+			<h4 class="orange-text bold margin-bottom">Registrar Género</h4>
+			<div class="admin-label">Nombre</div>
+			{{input
+				placeholder='Introduce el nombre de autor'
+				value=genreName
+				class='bibliotewa-input'
+			}}
+		</div>
+		<div class="modal-footer">
+			<a class="btn orange waves-effect" {{action 'saveGenre' genreName}}>Registrar género</a>
+		</div>
+		<a class="modal-action modal-close close-btn">
+			<i class="material-icons grey-text text-darken-2 small">close</i>
+		</a>
+	</div>
+{{/jquery-wrapper}}
